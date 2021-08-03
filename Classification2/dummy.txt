@@ -1,0 +1,23 @@
+Module 1: representation 
+
+Module 2: visualization 
+
+Module 3: classification1 
+
+Module 4: classification2 
+
+Module 5: perceptron 
+
+Module 6: probability 
+
+Module 7: unsupervised 
+
+Module 8: mlp 
+
+Module 9: regression 
+
+Module 10: deeplearning 
+
+Module 11: cnn 
+
+Module 12: rnn 
