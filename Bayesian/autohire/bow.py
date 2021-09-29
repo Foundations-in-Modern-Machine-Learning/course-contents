@@ -52,6 +52,12 @@ class BagOfWords:
                 x.append(self.encode_data(item))
         return x
 
+    def decode_data(self: "BagOfWords", encoded_text: typing.Iterable[int]):
+        if isinstance(encoded_text, int) or isinstance(encoded_text, np.int64):
+            return self.index_to_words[encoded_text]
+        else:
+            return list(map(self.decode_data, encoded_text))
+
     def get_counts(
         self: "BagOfWords",
         text: typing.Union[typing.Iterable[str], typing.Iterable[typing.Iterable[str]]],

@@ -24,9 +24,9 @@ class BayesianMulticlassModel:
         )  # p(word|label)
         evidence = word_frequencies / np.sum(word_frequencies)  # p(word)
 
-        evidence = np.multiply(counts_vector, evidence) + 0.001
-        prior = np.expand_dims(prior, axis=0)
+        likelihood = np.multiply(likelihood, counts_vector)
+        prior = np.expand_dims(prior, axis=1)
 
-        posterior_marginal = prior.T * (likelihood / evidence) + 0.001
+        posterior_marginal = prior * likelihood / evidence + 0.00001
         posterior_joint = np.sum(np.log(posterior_marginal), axis=1)
         return np.flip(np.argsort(posterior_joint))
