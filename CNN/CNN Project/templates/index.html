@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Expression recognition</title>
+  </head>
+  <body>
+  	<h1>Expression Recognition</h1>
+  	<h5>Click the 'Stop' button below to stop the stream</h5>
+  	<!--Placeholder for video frame, frame is captured and sent to server at '/video_feed' -->
+    <img id="bg" width=800px height=640px src="{{ url_for('video_feed') }}">
+    <button id="btnstop" onclick="stop_video()">Stop</button>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type=text/javascript>
+        $(function() {
+          $('#btnstop').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/stop_video',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+	</script>
+  </body>
+</html>
